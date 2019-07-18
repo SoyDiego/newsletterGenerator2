@@ -16,62 +16,70 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-9 d-flex justify-content-center">
-                    <div class="card" style="width: 100%;">
-                        <img class="card-img-top" id="imgExample" src="http://via.placeholder.com/600x200?text=Preview+:)" alt="Card image cap">
+                    <div class="card text-center" style="width: 100%;">
                         <div class="card-body">
-                            <h5 class="card-title">Newsletter Generator :)</h5>
+                            <h1 class="card-title">Newsletter Structure Generator :)</h1>
                             <p class="card-text">Choose among the options to generate your template</p>
                         </div>
+                        <img class="card-img-top" id="imgExample" src="http://via.placeholder.com/600x200?text=PREVIEW+here..." alt="Card image cap">
+
                         <div class="row">
                             <div class="col-4">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item" id="op1">HEADER - 2 LOGOS <a href="" class="btn btn-sm btn-primary float-right">+</a></li>
-                                    <li class="list-group-item" id="op2">MENU <a href="" class="btn btn-sm btn-primary float-right">+</a></li>
-                                    <li class="list-group-item" id="op3">BANNER <a href="" class="btn btn-sm btn-primary float-right">+</a></li>
-                                    <li class="list-group-item" id="op4">TITLE + TEXT <a href="" class="btn btn-sm btn-primary float-right">+</a></li>
-                                    <li class="list-group-item" id="op5">LEFT IMAGE + TEXT <a href="" class="btn btn-sm btn-primary float-right">+</a></li>
+                                <ul id="optionsList" class="list-group list-group-flush">
+                                    <li class="list-group-item options" id="op1">HEADER - 2 LOGOS</li>
+                                    <li class="list-group-item options" id="op2">MENU</li>
+                                    <li class="list-group-item options" id="op3">BANNER</li>
+                                    <li class="list-group-item options" id="op4">TITLE + TEXT</li>
+                                    <li class="list-group-item options" id="op5">LEFT IMAGE + TEXT</li>
 
 
                                 </ul>
                             </div>
                             <div class="col-4">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item" id="op6">RIGHT IMAGE + TEXT <a href="" class="btn btn-sm btn-primary float-right">+</a></li>
-                                    <li class="list-group-item" id="op7">FULL IMAGE + TEXT <a href="" class="btn btn-sm btn-primary float-right">+</a></li>
-                                    <li class="list-group-item" id="op8">TWO IMAGES + TEXT <a href="" class="btn btn-sm btn-primary float-right">+</a></li>
-                                    <li class="list-group-item" id="op9">THREE IMAGES + TEXT <a href="" class="btn btn-sm btn-primary float-right">+</a></li>
-                                    <li class="list-group-item" id="op10">FULL TEXT <a href="" class="btn btn-sm btn-primary float-right">+</a></li>
+                                <ul id="optionsList2" class="list-group list-group-flush">
+                                    <li class="list-group-item options" id="op6">RIGHT IMAGE + TEXT</li>
+                                    <li class="list-group-item options" id="op7">FULL IMAGE + TEXT</li>
+                                    <li class="list-group-item options" id="op8">TWO IMAGES + TEXT</li>
+                                    <li class="list-group-item options" id="op9">THREE IMAGES + TEXT</li>
+                                    <li class="list-group-item options" id="op10">FULL TEXT</li>
+                                    <li class="list-group-item options" id="op16">SEPARATOR</li>
                                 </ul>
                             </div>
 
                             <div class="col-4">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item" id="op11">TWO TEXT <a href="" class="btn btn-sm btn-primary float-right">+</a></li>
-                                    <li class="list-group-item" id="op12">THREE TEXT <a href="" class="btn btn-sm btn-primary float-right">+</a></li>
-                                    <li class="list-group-item" id="op13">TWO IMAGES <a href="" class="btn btn-sm btn-primary float-right">+</a></li>
-                                    <li class="list-group-item" id="op14">THREE IMAGES <a href="" class="btn btn-sm btn-primary float-right">+</a></li>
-                                    <li class="list-group-item" id="op15">FOUR IMAGES <a href="" class="btn btn-sm btn-primary float-right">+</a></li>
+                                <ul id="optionsList3" class="list-group list-group-flush">
+                                    <li class="list-group-item options" id="op11">TWO TEXT</li>
+                                    <li class="list-group-item options" id="op12">THREE TEXT</li>
+                                    <li class="list-group-item options" id="op13">TWO IMAGES</li>
+                                    <li class="list-group-item options" id="op14">THREE IMAGES</li>
+                                    <li class="list-group-item options" id="op15">FOUR IMAGES</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
 
+
                 <div class="col-3">
-                    YOUR TEMPLATE HERE:
-                    <ul class="list-group list-group-flush">
+                    <ul id="selectedList" class="list-group list-group-flush">
                         <li class="list-group-item">ELEMENT 1</li>
                         <li class="list-group-item">ELEMENT 1</li>
                         <li class="list-group-item">ELEMENT 1</li>
                         <li class="list-group-item">ELEMENT 1</li>
                     </ul>
-                    <a href="" class="btn btn-block btn-primary float-right">Copy to Clipboard :)</a></li>
+                    <a id="copyCode" onclick="copyToClipboard(); return false;" class="btn btn-block btn-primary">Copy to Clipboard :)</a></li>
+                    <a href="" class="btn btn-block btn-danger">Delete all</a></li>
                 </div>
             </div>
         </div>
 
         <!-- Optional JavaScript -->
         <script src="js/app.js"></script>
+        <script src="js/clipboard.min.js"></script>
+
+        <script>
+            new ClipboardJS('#copyCode');
+        </script>
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
