@@ -1,0 +1,10 @@
+.options {
+	transition: 0.8s;
+	cursor: pointer;
+}
+
+.options:hover {
+	background-color: #1989ac;
+	color: black;
+	font-weight: bold;
+}
