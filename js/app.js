@@ -2,6 +2,7 @@ let opChoosen;
 let choosenCode = "";
 let finalCode = document.getElementById("finalCode");
 let copyCode = document.getElementById("copyCode");
+let selectedList = document.getElementById('selectedList');
 
 document.getElementById("optionsList").addEventListener("mouseover", showImg);
 document.getElementById("optionsList2").addEventListener("mouseover", showImg);
@@ -99,6 +100,7 @@ function generateCode(e) {
 
 	switch (optionClicked.id) {
 		case "op1":
+			addedToList(optionClicked.textContent)
 			addedText(optionClicked);
 			opChoosen = `
 						<!-- START HEADER -->
@@ -153,6 +155,7 @@ function generateCode(e) {
 						<!-- END HEADER --> `;
 			break;
 		case "op2":
+			addedToList(optionClicked.textContent);
 			addedText(optionClicked);
 			opChoosen = `
 			<!-- START MENU -->
@@ -202,6 +205,7 @@ function generateCode(e) {
 			<!-- END MENU --> `;
 			break;
 		case "op3":
+			addedToList(optionClicked.textContent);
 			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START BANNER -->
@@ -235,6 +239,7 @@ function generateCode(e) {
 				<!-- END BANNER --> `;
 			break;
 		case "op4":
+			addedToList(optionClicked.textContent);
 			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START TITLE + TEXT -->
@@ -306,6 +311,7 @@ function generateCode(e) {
 				<!-- END TITLE + TEXT --> `;
 			break;
 		case "op5":
+			addedToList(optionClicked.textContent);
 			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START LEFT-IMAGE -->
@@ -403,6 +409,7 @@ function generateCode(e) {
 			break;
 
 		case "op6":
+			addedToList(optionClicked.textContent);
 			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START RIGHT-IMAGE -->
@@ -497,6 +504,7 @@ function generateCode(e) {
 				<!-- END RIGHT-IMAGE --> `;
 			break;
 		case "op7":
+			addedToList(optionClicked.textContent);
 			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 1 IMAGE + TEXT COLUMN -->
@@ -577,6 +585,7 @@ function generateCode(e) {
 				<!-- END 1 IMAGE + TEXT COLUMN --> `;
 			break;
 		case "op8":
+			addedToList(optionClicked.textContent);
 			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 2 IMAGE + TEXT COLUMNS -->
@@ -723,6 +732,7 @@ function generateCode(e) {
 				<!-- END 2 IMAGE + TEXT COLUMNS --> `;
 			break;
 		case "op9":
+			addedToList(optionClicked.textContent);
 			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 3 IMAGE + TEXT COLUMN -->
@@ -923,6 +933,7 @@ function generateCode(e) {
 				<!-- END 3 IMAGE + TEXT COLUMN --> `;
 			break;
 		case "op10":
+			addedToList(optionClicked.textContent);
 			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START FULL-TEXT -->
@@ -967,6 +978,7 @@ function generateCode(e) {
 			break;
 
 		case "op11":
+			addedToList(optionClicked.textContent);
 			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 2-TEXT-COLUMNS -->
@@ -1030,6 +1042,7 @@ function generateCode(e) {
 				<!-- END 2 TEXT COLUMN --> `;
 			break;
 		case "op12":
+			addedToList(optionClicked.textContent);
 			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 3-TEXT-COLUMNS -->
@@ -1105,6 +1118,7 @@ function generateCode(e) {
 				<!-- END 3 TEXT COLUMN --> `;
 			break;
 		case "op13":
+			addedToList(optionClicked.textContent);
 			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 2 IMAGES COLUMNS -->
@@ -1170,6 +1184,7 @@ function generateCode(e) {
 				<!-- END 2 IMAGES COLUMNS --> `;
 			break;
 		case "op14":
+			addedToList(optionClicked.textContent);
 			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 3 IMAGES COLUMNS -->
@@ -1249,6 +1264,7 @@ function generateCode(e) {
 				<!-- END 3 IMAGES COLUMNS --> `;
 			break;
 		case "op15":
+			addedToList(optionClicked.textContent);
 			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START SOCIAL MEDIA 4 IMAGES -->
@@ -1300,6 +1316,7 @@ function generateCode(e) {
 			break;
 
 		case "op16":
+			addedToList(optionClicked.textContent);
 			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START SEPARATOR -->
@@ -1449,13 +1466,18 @@ function copyToClipboard() {
 	}, 1000);
 }
 
-function addedText(event) {
-	let oldText = event.textContent;
-	let oldBG = event.style.backgroundColor;
-	event.style.backgroundColor = "#709078";
-	event.textContent = "ADDED! :)";
+function addedText(element) {
+	let oldText = element.textContent;
+	let oldBG = element.style.backgroundColor;
+	element.style.backgroundColor = "#709078";
+	element.textContent = "ADDED! :)";
 	setTimeout(() => {
-		event.textContent = oldText;
-		event.style.backgroundColor = oldBG;
+		element.textContent = oldText;
+		element.style.backgroundColor = oldBG;
 	}, 1000);
+}
+
+function addedToList(element){
+	let liElement = `<li class="list-group-item">${element}</li>`;
+	selectedList.innerHTML += liElement;
 }
