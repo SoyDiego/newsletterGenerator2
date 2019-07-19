@@ -28,69 +28,55 @@ function showImg(e) {
 
 	switch (optionHovered) {
 		case "op1":
-			document.getElementById("imgExample").setAttribute("src", "/img/op1.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op1.png");
 			break;
 		case "op2":
-			document.getElementById("imgExample").setAttribute("src", "/img/op2.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op2.png");
 			break;
 		case "op3":
-			document.getElementById("imgExample").setAttribute("src", "/img/op3.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op3.png");
 			break;
 		case "op4":
-			document.getElementById("imgExample").setAttribute("src", "/img/op4.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op4.png");
 			break;
 		case "op5":
-			document.getElementById("imgExample").setAttribute("src", "/img/op5.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op5.png");
 			break;
 
 		case "op6":
-			document.getElementById("imgExample").setAttribute("src", "/img/op6.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op6.png");
 			break;
 		case "op7":
-			document.getElementById("imgExample").setAttribute("src", "/img/op7.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op7.png");
 			break;
 		case "op8":
-			document.getElementById("imgExample").setAttribute("src", "/img/op8.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op8.png");
 			break;
 		case "op9":
-			document.getElementById("imgExample").setAttribute("src", "/img/op9.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op9.png");
 			break;
 		case "op10":
-			document
-				.getElementById("imgExample")
-				.setAttribute("src", "/img/op10.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op10.png");
 			break;
 
 		case "op11":
-			document
-				.getElementById("imgExample")
-				.setAttribute("src", "/img/op11.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op11.png");
 			break;
 		case "op12":
-			document
-				.getElementById("imgExample")
-				.setAttribute("src", "/img/op12.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op12.png");
 			break;
 		case "op13":
-			document
-				.getElementById("imgExample")
-				.setAttribute("src", "/img/op13.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op13.png");
 			break;
 		case "op14":
-			document
-				.getElementById("imgExample")
-				.setAttribute("src", "/img/op14.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op14.png");
 			break;
 		case "op15":
-			document
-				.getElementById("imgExample")
-				.setAttribute("src", "/img/op15.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op15.png");
 			break;
 
 		case "op16":
-			document
-				.getElementById("imgExample")
-				.setAttribute("src", "/img/op16.png");
+			document.getElementById("imgExample").setAttribute("src", "img/op16.png");
 			break;
 
 		default:
@@ -109,10 +95,11 @@ function showDefault() {
 
 function generateCode(e) {
 	e.preventDefault();
-	optionClicked = e.target.id;
+	optionClicked = e.target;
 
-	switch (optionClicked) {
+	switch (optionClicked.id) {
 		case "op1":
+			addedText(optionClicked);
 			opChoosen = `
 						<!-- START HEADER -->
 						<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="header">
@@ -166,6 +153,7 @@ function generateCode(e) {
 						<!-- END HEADER --> `;
 			break;
 		case "op2":
+			addedText(optionClicked);
 			opChoosen = `
 			<!-- START MENU -->
 			<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="menu">
@@ -214,6 +202,7 @@ function generateCode(e) {
 			<!-- END MENU --> `;
 			break;
 		case "op3":
+			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START BANNER -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="banner">
@@ -246,6 +235,7 @@ function generateCode(e) {
 				<!-- END BANNER --> `;
 			break;
 		case "op4":
+			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START TITLE + TEXT -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="title+text">
@@ -316,6 +306,7 @@ function generateCode(e) {
 				<!-- END TITLE + TEXT --> `;
 			break;
 		case "op5":
+			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START LEFT-IMAGE -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="left-image">
@@ -412,6 +403,7 @@ function generateCode(e) {
 			break;
 
 		case "op6":
+			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START RIGHT-IMAGE -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="right-image">
@@ -505,6 +497,7 @@ function generateCode(e) {
 				<!-- END RIGHT-IMAGE --> `;
 			break;
 		case "op7":
+			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 1 IMAGE + TEXT COLUMN -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="1-image+text-column">
@@ -584,6 +577,7 @@ function generateCode(e) {
 				<!-- END 1 IMAGE + TEXT COLUMN --> `;
 			break;
 		case "op8":
+			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 2 IMAGE + TEXT COLUMNS -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="2-images+text-columns">
@@ -729,6 +723,7 @@ function generateCode(e) {
 				<!-- END 2 IMAGE + TEXT COLUMNS --> `;
 			break;
 		case "op9":
+			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 3 IMAGE + TEXT COLUMN -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="3-images+text-columns">
@@ -928,6 +923,7 @@ function generateCode(e) {
 				<!-- END 3 IMAGE + TEXT COLUMN --> `;
 			break;
 		case "op10":
+			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START FULL-TEXT -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="full-text">
@@ -971,6 +967,7 @@ function generateCode(e) {
 			break;
 
 		case "op11":
+			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 2-TEXT-COLUMNS -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="2-text-columns">
@@ -1033,6 +1030,7 @@ function generateCode(e) {
 				<!-- END 2 TEXT COLUMN --> `;
 			break;
 		case "op12":
+			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 3-TEXT-COLUMNS -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="3-text-columns">
@@ -1107,6 +1105,7 @@ function generateCode(e) {
 				<!-- END 3 TEXT COLUMN --> `;
 			break;
 		case "op13":
+			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 2 IMAGES COLUMNS -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="2-images-columns">
@@ -1171,6 +1170,7 @@ function generateCode(e) {
 				<!-- END 2 IMAGES COLUMNS --> `;
 			break;
 		case "op14":
+			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 3 IMAGES COLUMNS -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="3-images-columns">
@@ -1249,6 +1249,7 @@ function generateCode(e) {
 				<!-- END 3 IMAGES COLUMNS --> `;
 			break;
 		case "op15":
+			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START SOCIAL MEDIA 4 IMAGES -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="social">
@@ -1299,6 +1300,7 @@ function generateCode(e) {
 			break;
 
 		case "op16":
+			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START SEPARATOR -->
 				<table width="100%" st-sortable="separator">
@@ -1444,5 +1446,16 @@ function copyToClipboard() {
 	copyCode.textContent = "COPIED! :)";
 	setTimeout(() => {
 		copyCode.textContent = "Copy to Clipboard!";
+	}, 1000);
+}
+
+function addedText(event) {
+	let oldText = event.textContent;
+	let oldBG = event.style.backgroundColor;
+	event.style.backgroundColor = "#709078";
+	event.textContent = "ADDED! :)";
+	setTimeout(() => {
+		event.textContent = oldText;
+		event.style.backgroundColor = oldBG;
 	}, 1000);
 }
