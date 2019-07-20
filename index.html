@@ -47,7 +47,7 @@
                             </div>
 
                             <div class="col-4">
-                                <ul id="optionsList3" class="list-group list-group-flush">
+                                <ul id="optionsList3" class="list-group list-group-flush text-center" disabled>
                                     <li class="list-group-item options" id="op11">TWO TEXT</li>
                                     <li class="list-group-item options" id="op12">THREE TEXT</li>
                                     <li class="list-group-item options" id="op13">TWO IMAGES</li>
@@ -56,16 +56,43 @@
                                 </ul>
                             </div>
                         </div>
+
+                        <div class="modal fade" id="modalPreview" tabindex="-1" role="dialog" aria-labelledby="modalPreview2" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalPreview2">Your template here... :)</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <iframe id="iframePreview" class="iframe" srcdoc="" width="650" height="800" frameborder="0"></iframe>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
 
                 <div class="col-3">
+                    <h4>Your template Structure:</h4>
+                    <div id="alertMessage" class="alert alert-success alert-dismissible fade show invisible" role="alert">
+                        <strong>Added succesfully</strong>.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                     <ul id="selectedList" class="list-group list-group-flush">
-                        
+
                     </ul>
-                    <a id="copyCode" onclick="copyToClipboard(); return false;" class="btn btn-block btn-primary">Copy to Clipboard :)</a></li>
-                    <a href="" class="btn btn-block btn-danger">Delete all</a></li>
+                    <a id="copyCode" onclick="copyToClipboard(); return false;" class="btn btn-block btn-primary disabled">Copy to Clipboard :)</a></li>
+                    <a id="deleteAll" class="btn btn-block btn-danger disabled">Delete all</a></li>
+                    <a id="preview" class="btn btn-block btn-warning disabled" data-toggle="modal" data-target="#modalPreview">Preview</a></li>
                 </div>
             </div>
         </div>

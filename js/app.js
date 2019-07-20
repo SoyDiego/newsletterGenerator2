@@ -1,16 +1,15 @@
 let opChoosen;
 let choosenCode = "";
-let finalCode = document.getElementById("finalCode");
+let finalCode;
 let copyCode = document.getElementById("copyCode");
-let selectedList = document.getElementById('selectedList');
+let selectedList = document.getElementById("selectedList");
+let deleteAll = document.getElementById("deleteAll");
+let alertMessage = document.getElementById("alertMessage");
+let preview = document.getElementById("preview");
 
 document.getElementById("optionsList").addEventListener("mouseover", showImg);
 document.getElementById("optionsList2").addEventListener("mouseover", showImg);
 document.getElementById("optionsList3").addEventListener("mouseover", showImg);
-
-document.getElementById("optionsList").addEventListener("click", generateCode);
-document.getElementById("optionsList2").addEventListener("click", generateCode);
-document.getElementById("optionsList3").addEventListener("click", generateCode);
 
 document
 	.getElementById("optionsList")
@@ -21,6 +20,13 @@ document
 document
 	.getElementById("optionsList3")
 	.addEventListener("mouseout", showDefault);
+
+document.getElementById("optionsList").addEventListener("click", generateCode);
+document.getElementById("optionsList2").addEventListener("click", generateCode);
+document.getElementById("optionsList3").addEventListener("click", generateCode);
+
+preview.addEventListener("click", previewTemplate);
+deleteAll.addEventListener("click", deleteList);
 
 //Show image on mouseover...
 function showImg(e) {
@@ -96,12 +102,12 @@ function showDefault() {
 
 function generateCode(e) {
 	e.preventDefault();
+	enableButtons();
 	optionClicked = e.target;
 
 	switch (optionClicked.id) {
 		case "op1":
-			addedToList(optionClicked.textContent)
-			addedText(optionClicked);
+			addedToList(optionClicked.textContent);
 			opChoosen = `
 						<!-- START HEADER -->
 						<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="header">
@@ -156,7 +162,6 @@ function generateCode(e) {
 			break;
 		case "op2":
 			addedToList(optionClicked.textContent);
-			addedText(optionClicked);
 			opChoosen = `
 			<!-- START MENU -->
 			<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="menu">
@@ -206,7 +211,6 @@ function generateCode(e) {
 			break;
 		case "op3":
 			addedToList(optionClicked.textContent);
-			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START BANNER -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="banner">
@@ -240,7 +244,6 @@ function generateCode(e) {
 			break;
 		case "op4":
 			addedToList(optionClicked.textContent);
-			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START TITLE + TEXT -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="title+text">
@@ -312,7 +315,6 @@ function generateCode(e) {
 			break;
 		case "op5":
 			addedToList(optionClicked.textContent);
-			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START LEFT-IMAGE -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="left-image">
@@ -410,7 +412,6 @@ function generateCode(e) {
 
 		case "op6":
 			addedToList(optionClicked.textContent);
-			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START RIGHT-IMAGE -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="right-image">
@@ -505,7 +506,6 @@ function generateCode(e) {
 			break;
 		case "op7":
 			addedToList(optionClicked.textContent);
-			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 1 IMAGE + TEXT COLUMN -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="1-image+text-column">
@@ -586,7 +586,6 @@ function generateCode(e) {
 			break;
 		case "op8":
 			addedToList(optionClicked.textContent);
-			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 2 IMAGE + TEXT COLUMNS -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="2-images+text-columns">
@@ -733,7 +732,6 @@ function generateCode(e) {
 			break;
 		case "op9":
 			addedToList(optionClicked.textContent);
-			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 3 IMAGE + TEXT COLUMN -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="3-images+text-columns">
@@ -934,7 +932,6 @@ function generateCode(e) {
 			break;
 		case "op10":
 			addedToList(optionClicked.textContent);
-			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START FULL-TEXT -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="full-text">
@@ -979,7 +976,6 @@ function generateCode(e) {
 
 		case "op11":
 			addedToList(optionClicked.textContent);
-			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 2-TEXT-COLUMNS -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="2-text-columns">
@@ -1043,7 +1039,6 @@ function generateCode(e) {
 			break;
 		case "op12":
 			addedToList(optionClicked.textContent);
-			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 3-TEXT-COLUMNS -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="3-text-columns">
@@ -1119,7 +1114,6 @@ function generateCode(e) {
 			break;
 		case "op13":
 			addedToList(optionClicked.textContent);
-			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 2 IMAGES COLUMNS -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="2-images-columns">
@@ -1185,7 +1179,6 @@ function generateCode(e) {
 			break;
 		case "op14":
 			addedToList(optionClicked.textContent);
-			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START 3 IMAGES COLUMNS -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="3-images-columns">
@@ -1265,7 +1258,6 @@ function generateCode(e) {
 			break;
 		case "op15":
 			addedToList(optionClicked.textContent);
-			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START SOCIAL MEDIA 4 IMAGES -->
 				<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" st-sortable="social">
@@ -1317,7 +1309,6 @@ function generateCode(e) {
 
 		case "op16":
 			addedToList(optionClicked.textContent);
-			addedText(optionClicked);
 			opChoosen = `
 			    <!-- START SEPARATOR -->
 				<table width="100%" st-sortable="separator">
@@ -1466,18 +1457,49 @@ function copyToClipboard() {
 	}, 1000);
 }
 
-function addedText(element) {
-	let oldText = element.textContent;
-	let oldBG = element.style.backgroundColor;
-	element.style.backgroundColor = "#709078";
-	element.textContent = "ADDED! :)";
+function addedToList(element) {
+	let liElement = `<li class="list-group-item">${element}</li>`;
+	selectedList.innerHTML += liElement;
+	alertMessage.classList.remove("invisible");
 	setTimeout(() => {
-		element.textContent = oldText;
-		element.style.backgroundColor = oldBG;
+		alertMessage.classList.add("invisible");
 	}, 1000);
 }
 
-function addedToList(element){
-	let liElement = `<li class="list-group-item">${element}</li>`;
-	selectedList.innerHTML += liElement;
+function deleteList(e) {
+	e.preventDefault();
+	while (selectedList.firstChild) {
+		selectedList.removeChild(selectedList.firstChild);
+	}
+	disableButtons();
+	finalCode = "";
+	choosenCode = "";
+}
+
+function previewTemplate() {
+	document.getElementById("iframePreview").srcdoc = finalCode;
+}
+
+function enableButtons() {
+	if (
+		copyCode.classList.contains("disabled") ||
+		deleteAll.classList.contains("disabled") ||
+		preview.classList.contains("disabled")
+	) {
+		copyCode.classList.remove("disabled");
+		deleteAll.classList.remove("disabled");
+		preview.classList.remove("disabled");
+	}
+}
+
+function disableButtons(){
+	if (
+		!copyCode.classList.contains("disabled") ||
+		!deleteAll.classList.contains("disabled") ||
+		!preview.classList.contains("disabled")
+	) {
+		copyCode.classList.add("disabled");
+		deleteAll.classList.add("disabled");
+		preview.classList.add("disabled");
+	}
 }
